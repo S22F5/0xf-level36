@@ -41,8 +41,7 @@ convert -colorspace gray  -threshold 10% -resize 480% -sharpen 10 -negate full_i
 ## cleanup
 rm -Rvf 2/
 
-
-
-feh out.png
+tesseract out.png o
+cat o.txt
 printf "done"
 
