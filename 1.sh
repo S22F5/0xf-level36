@@ -23,8 +23,8 @@ rollimage () {
 }
 
 ## cleanup, remove if you want summary image
-rm 1/or.png
-rm 1/o.png
+rm 1/or.png 1> /dev/null
+rm 1/o.png 1> /dev/null
 
 ## rollimages
 for f in 1/*.png; do
@@ -32,14 +32,14 @@ for f in 1/*.png; do
   done
 
 ## cleanup
-rm -Rvf 1/
+rm -Rvf 1/ 1> /dev/null
 
 ## recreate image
 convert $(ls -v 2/*.jpg) -append  full_img.png
 convert -colorspace gray  -threshold 10% -resize 480% -sharpen 10 -negate full_img.png out.png
 
 ## cleanup
-rm -Rvf 2/
+rm -Rvf 2/ 1> /dev/null
 
 tesseract out.png o
 cat o.txt
