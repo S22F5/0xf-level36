@@ -35,7 +35,7 @@ for f in 1/*.png; do
 rm -Rvf 1/
 
 ## recreate image
-convert 2/*.jpg -append  full_img.png
+convert $(ls -v 2/*.jpg) -append  full_img.png
 convert -colorspace gray  -threshold 10% -resize 480% -sharpen 10 -negate full_img.png out.png
 
 ## cleanup
@@ -43,6 +43,6 @@ rm -Rvf 2/
 
 
 
-bash feh out.png
+feh out.png
 printf "done"
 
